@@ -1,0 +1,78 @@
+h1{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 300px;
+}
+
+.chats {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+    width:700px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(85,85,230,0.4) transparent;
+}
+
+/* alignment */
+.user {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.assistant {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+/* bubbles */
+.usermessage {
+    background-color: #5555E6;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 14px;
+    max-width: 60%;
+    text-align: left;
+}
+
+.gptmessage {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 14px;
+    max-width: 100%;
+    text-align: left;
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex;
+    gap: 5px;
+    padding: 4px 2px;
+    align-items: center;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: translateY(0); }
+    40%           { transform: translateY(-6px); }
+}

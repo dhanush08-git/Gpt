@@ -1,0 +1,79 @@
+.login-page{
+    min-height: 100vh;
+    background: linear-gradient(90deg,rgba(2,0,36,1) 0%,rgba(3,1,45,1) 5%, rgba(4,2,56,1) 23%, rgba(6,5,81,1) 96%, rgba(9,9,121,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box{
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 1rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.login-box h1{
+    color: #fff;
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+
+}
+
+.login-box input{
+    background:rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: #ececec;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.login-box input:focus{
+    border-color: #5555E6;
+}
+
+.login-box button{
+    background: #5555E6;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    width: 4rem;
+    align-self: center;
+    transition: all 0.3s ease;
+}
+
+.login-box button:hover{
+    background: #4444C1;
+}
+
+.login-box .error{
+    color: #ff6b6b;
+    text-align: center;
+    font-size: 0.75rem;
+    margin: 0;
+
+}
+
+.login-box .link{
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+}
+
+.login-box .link a{
+    color: #5555E6;
+    text-decoration: none;
+}
+
+
+

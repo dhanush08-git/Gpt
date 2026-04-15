@@ -1,0 +1,84 @@
+.register-page {                                    
+      min-height: 100vh;                              
+      background: linear-gradient(90deg,              
+  rgba(2,0,36,1) 0%, rgba(3,1,45,1) 5%, rgba(4,2,56,1)
+   23%, rgba(6,5,81,1) 96%, rgba(9,9,121,1) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .register-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 40px;
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+  }
+
+  .register-box h1 {
+      margin: 0 0 10px 0;
+      text-align: center;
+      font-size: 26px;
+      color: #ececec;
+  }
+
+  .register-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+  }
+
+  .register-box input {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #ececec;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+  }
+
+  .register-box input:focus {
+      border-color: #5555E6;
+  }
+
+  .register-box button {
+      background: #5555E6;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
+      color: white;
+      cursor: pointer;
+      margin-top: 4px;
+      width: 5rem;
+      text-align: center;
+  }
+
+  .register-box button:hover {
+      background: #4444cc;
+  }
+
+  .register-box .error {
+      color: #ff6b6b;
+      font-size: 13px;
+      text-align: center;
+      margin: 0;
+  }
+
+  .register-box .link {
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+  }
+
+  .register-box .link a {
+      color: #5555E6;
+      text-decoration: none;
+  }

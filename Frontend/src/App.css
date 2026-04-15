@@ -1,0 +1,14 @@
+*{
+    color: #ececec;
+    font-family :Roboto, 'Open Sans','Helvetica Neue', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app{
+   background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(3, 1, 45, 1) 5%, rgba(4, 2, 56, 1) 23%, rgba(6, 5, 81, 1) 96%, rgba(9, 9, 121, 1) 100%);
+    display: flex;
+}
