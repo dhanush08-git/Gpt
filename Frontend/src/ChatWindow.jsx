@@ -3,6 +3,7 @@ import Chat from "./Chat.jsx";
 import { useContext, useState, useEffect } from "react";
 import { MyContext } from "./MyContext.jsx";
 import Loader from "./Loader.jsx";
+import API from "./api.js";
 
 function ChatWindow(){
     const { prompt, setPrompt, setReply, currThreadId, setPrevChats } = useContext(MyContext);
@@ -30,15 +31,16 @@ function ChatWindow(){
         setPrevChats(prev => [...prev, userMessage]);
 
         try {
-            const response = await fetch("http://localhost:8000/api/chat", {
+            
+            const response = await fetch(`${API}/api/chat`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`
-                 },
+                headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+                },
                 body: JSON.stringify({ message: currentPrompt, threadId: currThreadId }),
-
             });
-
+            
             if (!response.ok) throw new Error("API error");
 
             const res = await response.json();

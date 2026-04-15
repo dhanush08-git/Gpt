@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Login.css";
+import API from "../api.js";
 
 function Login(){
     const [email, setEmail] = useState('');
@@ -8,13 +9,14 @@ function Login(){
 
     const handleLogin = async () => {
         // Implement login logic here, e.g., send credentials to backend and handle response
-        const res = await fetch("http://localhost:8000/api/auth/login", {
-            method:'POST',
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({
-                email,password
-            })
-        });
+        const res = await 
+        fetch(`${API}/api/auth/login`, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+    });
         const data = await res.json();
         if(!res.ok){
             setError(data.message || "Login failed. Please try again(invalid credentials).");

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Register.css";
+import API from "../api.js";
 
 
 const Register = () => {
@@ -10,7 +11,7 @@ const [error, setError] = useState('');
         const userName = e.target[0].value;
         const email = e.target[1].value;
         const password = e.target[2].value;
-        const res = await fetch("http://localhost:8000/api/auth/register", {
+        const res = await fetch(`${API}/api/auth/register`, {
             method:'POST',
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({

@@ -2,19 +2,34 @@ import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext";
 import {v1 as uuidv1} from "uuid";
+import API from "./api.js";
 
 function Sidebar(){
     const { allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setThreadId, setPrevChats } = useContext(MyContext);
 
     const getAllThreads = async () => {
-        try {
-            const response = await fetch("http://localhost:8000/api/thread",{
-                headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`}
-            });
-            const res = await response.json();
-            setAllThreads(res.map(t => ({ threadId: t.threadId, title: t.title })));
+       try {
+            const response = await fetch(`${API}/api/thread`, {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        });
+
+        if (!response.ok) throw new Error("Failed to fetch threads");
+
+        const res = await response.json();
+
+        setAllThreads(
+            res.map(t => ({
+                threadId: t.threadId,
+                title: t.title
+            }))
+        );
+
         } catch(err) {
-            console.log(err);
+        console.log(err);
         }
     };
 
@@ -35,9 +50,11 @@ function Sidebar(){
         setPrompt("");
         setThreadId(newThreadId);
         try {
-            const response = await fetch(`http://localhost:8000/api/thread/${newThreadId}`,{
-                headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`}
-            });
+            const response = await fetch(`${API}/api/thread/${newThreadId}`, {
+            headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        });
             const messages = await response.json();
             setPrevChats(Array.isArray(messages) ? messages : []);
         } catch(err) {
@@ -48,7 +65,12 @@ function Sidebar(){
 
     const deleteThread = async (threadId) => {
         try {
-            const response = await fetch(`http://localhost:8000/api/thread/${threadId}`,{method: "DELETE",headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`}});
+            const response = await fetch(`${API}/api/thread/${threadId}`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                }
+            });
             console.log(response);
             //updated threads re-render
             setAllThreads(prev => prev.filter(thread => thread.threadId !== threadId));
